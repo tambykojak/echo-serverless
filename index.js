@@ -16,6 +16,10 @@ const dynamoDbClient = DynamoDBDocumentClient.from(client);
 
 app.use(express.json());
 
+app.get("/", function (req, res) {
+  res.json({ message: "Hello World" });
+});
+
 app.get("/users/:userId", async function (req, res) {
   const params = {
     TableName: USERS_TABLE,
